@@ -6,8 +6,8 @@
     "index.coffee"
   ],
   "names": [],
-  "mappings": "AAAA;EAAA;AAAA,MAAA;;EACA,IAAA,GAAO,OAAA,CAAQ,MAAR;;EAEP,MAAM,CAAC,OAAP,GAAiB,QAAA,CAAC,MAAD,CAAA;WACf,QAAA,CAAC,EAAD,CAAA;aACE,UAAA,CAAW,QAAA,CAAA,CAAA;QACT,EAAE,CAAC,GAAH,CAAO,MAAP,EAAe,EAAE,CAAC,MAAH,CAAU,oBAAV,CAAf;eACA,EAAE,CAAC,GAAH,CAAO,IAAP,EAAa,QAAA,CAAC,GAAD,EAAM,GAAN,CAAA;iBACX,GAAG,CAAC,QAAJ,CAAa,YAAb,EAA2B;YAAA,IAAA,EAAM,IAAI,CAAC,IAAL,CAAU,EAAE,CAAC,IAAb,EAAmB,QAAnB;UAAN,CAA3B;QADW,CAAb;MAFS,CAAX;IADF;EADe;AAHjB",
+  "mappings": "AAAA;EAAA;AAAA,MAAA;;EACA,IAAA,GAAO,OAAA,CAAQ,MAAR;;EAEP,MAAM,CAAC,OAAP,GAAiB,QAAA,CAAC,MAAD,CAAA;WACf,QAAA,CAAC,EAAD,CAAA;aACE,UAAA,CAAW,QAAA,CAAA,CAAA;QACT,EAAE,CAAC,GAAH,CAAO,MAAP,EAAe,EAAE,CAAC,MAAH,CAAU,IAAI,CAAC,IAAL,CAAU,EAAE,CAAC,IAAb,EAAmB,OAAnB,EAA4B,QAA5B,EAAsC,KAAtC,CAAV,CAAf;QACA,EAAE,CAAC,GAAH,CAAO,SAAP,EAAkB,EAAE,CAAC,MAAH,CAAU,IAAI,CAAC,IAAL,CAAU,EAAE,CAAC,IAAb,EAAmB,QAAnB,CAAV,CAAlB;eACA,EAAE,CAAC,GAAH,CAAO,IAAP,EAAa,QAAA,CAAC,GAAD,EAAM,GAAN,CAAA;iBACX,GAAG,CAAC,QAAJ,CAAa,YAAb,EAA2B;YAAA,IAAA,EAAM,IAAI,CAAC,IAAL,CAAU,EAAE,CAAC,IAAb,EAAmB,OAAnB,EAA4B,QAA5B;UAAN,CAA3B;QADW,CAAb;MAHS,CAAX;IADF;EADe;AAHjB",
   "sourcesContent": [
-    "'use strict'\r\npath = require 'path'\r\n\r\nmodule.exports = (config) ->\r\n  (rs) ->\r\n    setTimeout ->\r\n      rs.use '/app', rs.static './build/client/app'\r\n      rs.all '/*', (req, res) ->\r\n        res.sendFile 'index.html', root: path.join rs.base, 'client'"
+    "'use strict'\r\npath = require 'path'\r\n\r\nmodule.exports = (config) ->\r\n  (rs) ->\r\n    setTimeout ->\r\n      rs.use '/app', rs.static path.join rs.base, 'build', 'client', 'app'\r\n      rs.use '/public', rs.static path.join rs.base, 'public'\r\n      rs.all '/*', (req, res) ->\r\n        res.sendFile 'index.html', root: path.join rs.base, 'build', 'client'"
   ]
 }
